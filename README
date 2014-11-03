@@ -1,4 +1,3 @@
 git 学习视频地址 http://edu.51cto.com/lesson/id-33758.html
-git checkout file  // stage -> workarea
-git checkout HEAD file //head -> workarea
-git reset file // head ->stage
+git学习笔记.txt是git 的一些基本用法,方便以后自己快速回忆
+以后一定要多记笔记
