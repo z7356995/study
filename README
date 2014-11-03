@@ -1,0 +1,4 @@
+git 学习视频地址 http://edu.51cto.com/lesson/id-33758.html
+git checkout file  // stage -> workarea
+git checkout HEAD file //head -> workarea
+git reset file // head ->stage
