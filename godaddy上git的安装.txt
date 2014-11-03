@@ -1,4 +1,4 @@
-Ô­ÎÄµØÖ·:
+ï»¿åŸæ–‡åœ°å€:
 http://www.612softwarefoundry.com/getting-git-on-godaddy/
 
 07 AUGUST 2013 / BY JENNA PEDERSON / IN GIT
@@ -15,7 +15,7 @@ Follow the instructions to enable SSH
 In a terminal, SSH to your GoDaddy server:
         $ ssh <your username>@<your domain name or IP address>
         
-Accept the fingerprint by pressing ¡®y¡¯
+Accept the fingerprint by pressing â€˜yâ€™
 Enter your password
 Note: If you would like password-less login via SSH, create an SSH key using ssh-keygen on your local computer and add the public key to the ~/.ssh/authorized_keys file (which you may need to create) on your GoDaddy server.
 
@@ -90,4 +90,4 @@ Push to the repo:
         
 Noteworthy Item
 
-Because GoDaddy blocks outgoing SSH access, I was unable to ¡®git clone¡¯ via SSH. Instead, I simply used HTTPS.
+Because GoDaddy blocks outgoing SSH access, I was unable to â€˜git cloneâ€™ via SSH. Instead, I simply used HTTPS.
