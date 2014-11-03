@@ -1,4 +1,5 @@
-原文地址 :http://www.612softwarefoundry.com/getting-git-on-godaddy/
+原文地址:
+http://www.612softwarefoundry.com/getting-git-on-godaddy/
 
 07 AUGUST 2013 / BY JENNA PEDERSON / IN GIT
 Getting Git on GoDaddy
