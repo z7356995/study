@@ -1,0 +1,92 @@
+Ô­ÎÄµØÖ· :http://www.612softwarefoundry.com/getting-git-on-godaddy/
+
+07 AUGUST 2013 / BY JENNA PEDERSON / IN GIT
+Getting Git on GoDaddy
+
+Ever needed to do some work on a shared hosting account on GoDaddy and not wanted to FTP files back and forth? Or wanted some form of back up and version control for your work? Unfortunately, GoDaddy shared hosting accounts do not come with git pre-installed. But it is completely possible to implement a sane development process using git on GoDaddy!
+
+Turn on GoDaddy SSH
+
+After logging into your GoDaddy.com account, Launch the Hosting Control Panel.
+Expand Options & Settings
+Click on SSH in the Settings section
+Follow the instructions to enable SSH
+In a terminal, SSH to your GoDaddy server:
+        $ ssh <your username>@<your domain name or IP address>
+        
+Accept the fingerprint by pressing ¡®y¡¯
+Enter your password
+Note: If you would like password-less login via SSH, create an SSH key using ssh-keygen on your local computer and add the public key to the ~/.ssh/authorized_keys file (which you may need to create) on your GoDaddy server.
+
+Get Git
+
+From your GoDaddy server, find out your server instance details at the command line:
+        $ uname -a
+        Linux xyz.secureserver.net 2.6.18-348.6.1.el5PAE #1 SMP Tue May 21 16:17:08 EDT 2013 i686 i686 i386 GNU/Linux
+        
+Note the hardware platform: i386
+Find out the OS version at the command line:
+        $ cat /etc/redhat-release
+        CentOS release 5.5 (Final)
+        
+Note the OS and version: CentOS release 5.5 (Final)
+Browse to http://pkgs.repoforge.org/git/ and figure out the rpm to grab for the latest git version: git-1.7.9.6-1.el5.rf.i386.rpm
+From your home directory, get the rpm:
+        $ wget http://pkgs.repoforge.org/git/git-1.7.9.6-1.el5.rf.i386.rpm
+        
+Install & Configure Git
+
+Unpack git using rpm2cpio and cpio:
+        mkdir ~/opt
+        cd ~/opt
+        rpm2cpio ~/git-1.7.9.6-1.el5.rf.i386.rpm | cpio -id
+        
+Make sure that it is installed:
+        ~/opt/usr/bin/git --version
+        git version 1.7.9.6
+        
+Get git on your path and tell Git not to do SSL verification. If you haven't already, create a ~/.bash_profile file and add the following to it:
+        export GIT_SSL_NO_VERIFY=true
+        PATH=$PATH:$HOME/opt/usr/bin
+        export PATH
+        GIT_EXEC_PATH=$HOME/opt/usr/libexec/git-core
+        export GIT_EXEC_PATH
+        
+Make sure these settings are working correctly by logging out and back in. Then check the version:
+        git --version
+        git version 1.7.9.6
+        
+If bash doesn't know about git, try moving those settings to the .bashrc file instead of .bash_profile.
+Run the following commands to properly configure git:
+        $ git config --global init.templatedir ~/opt/usr/share/git-core/templates
+        $ git config --global remote.origin.uploadpack ~/opt/usr/bin/git-upload-pack
+        $ git config --global remote.origin.receivepack ~/opt/usr/bin/git-receive-pack
+        $ git config --global user.name "<Your Full Name>"
+        $ git config --global user.email "<Your Email Address>"
+        
+Test It Out
+
+Clone a repo:
+        $ git clone https://github.com/jennapederson/test.git
+        Cloning into 'test'...
+        remote: Counting objects: 3, done.
+        remote: Total 3 (delta 0), reused 0 (delta 0)
+        Unpacking objects: 100% (3/3), done.
+        
+Make a change
+        $ echo "\*.log" &gt; .gitignore
+        $ git add .gitignore
+        $ git commit "Ignoring .log files"
+        
+Push to the repo:
+        $ git push origin master
+        warning: Setting remote service path not supported by protocol.
+        Username for 'https://github.com': jennapederson
+        Password for 'https://jennapederson@github.com':
+        warning: Setting remote service path not supported by protocol.
+        To https://github.com/jennapederson/test.git
+        4969a86..57568ee  master -&gt; master
+        
+Noteworthy Item
+
+Because GoDaddy blocks outgoing SSH access, I was unable to ¡®git clone¡¯ via SSH. Instead, I simply used HTTPS.
