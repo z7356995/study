@@ -1,4 +1,10 @@
-git 学习视频地址 http://edu.51cto.com/lesson/id-33758.html
+﻿git 学习视频地址 
+以后如果godaddy上要做一个web页面的可视化页面,可以用viewgit
+http://viewgit.fealdia.org/ 这样一些秘密的repos 可以自己看.
+安装在godaddy上,现在暂是不管了.
+
+
+http://edu.51cto.com/lesson/id-33758.html
 git checkout file  // stage -> workarea
 git checkout HEAD file //head -> workarea
 git reset file // head ->stage
