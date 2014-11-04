@@ -1,0 +1,34 @@
+cygwin 右健进入  我cygwin 编码设置成utf-8 win7  是gbk 所以不能进入有中文的目录. 
+测试可用,
+原文地址
+http://blog.csdn.net/rsljdkt/article/details/27066839
+
+    大家知道在Windows下Shift+右键菜单可以呼出“在此处打开命令行窗口”菜单项，在当前路径下执行一些命令，非常的方便。下图是做出的效果：
+
+
+    那么，如何以这种方式打开Cygwin的命令行窗口呢? 方法是”外呼里应“，”外呼“就是通过注册表添加右键菜单项，用户点击该菜单项时，调用相应程序并传入参数，其中一个重要的参数就是当前路径。”里应“就是在cygwin的启动脚本里检测路径参数，若有，则将工作路径切换到该路径参数。
+    下面先介绍手动改动注册表的方式：
+(1) Win + R, 输入regedit, 回车，启动注册表编辑程序，找到HKEY_CLASSES_ROOT\Directory\Background\shell表项
+(2) 右击"shell"->新建->项，输入新建项的名字，如"在此处打开Cygwin窗口"，此名随便起，会显示在菜单项上。右击刚才新建的项->新建->项，输入新建项名字为"command"，这个项的名字必须为"command"，表示点击该菜单项时要执行的命令。双击"command"下"(默认)"数据项，在"数值数据(V)"下输入如下内容：
+[plain] view plaincopy在CODE上查看代码片派生到我的代码片
+"D:\Cygwin\bin\mintty.exe" -i /Cygwin-Terminal.ico /bin/env _T=%V /bin/bash -l  
+解释下上面一行内容的含义。"D:\Cygwin\bin\mintty.exe"为mintty所在位置，注意根据cygwin安装路径不同有所不同。-i用于指定mintty窗口左上角的图标，/bin/env _T=%V用于设置在启动mintty后的shell里面环境变量_T的值，_T为路径参数，其中%V表示windows传入的路径参数。/bin/bash -l 表示启动登录shell
+
+
+(3) 若仅进行以上设置，右击即可出现菜单项。现在要将其设置成Shift+右击才出现。找到新建的”在此处打开Cygwin窗口“，右击->新建->字符串值,名字输入”Extended“，值保持默认即可。
+
+
+(4) 进入Cygwin，编辑~/.bash_profile文件，在尾部添加如下内容：
+[plain] view plaincopy在CODE上查看代码片派生到我的代码片
+_T=${_T//\\//} #将所有的'\'替换为'/'  
+if [[ $_T == "" ]]; then  
+    _T=${HOME}  
+fi  
+cd "${_T}"  
+
+(4)至此，完成。
+
+下面介绍一个小工具Context Menu Editor，简化上面注册表编辑的繁琐操作，以管理员权限运行该程序，进行如下设置后，点击”set“即可加入注册表。
+
+
+注意，该工具可以设置菜单项左侧显示的小图标，实际上是在HKEY_CLASSES_ROOT\Directory\Background\shell\{newItemName}下新建"Icon"数据项并设置值为图标路径实现的。该图标与Path文本框里的-i含义不同。
