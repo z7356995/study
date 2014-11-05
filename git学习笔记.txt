@@ -13,3 +13,5 @@ git rm --cached file //重stage rm file, work area 文件还存在.
 如果git rm file //workarea 没有文件
 
 git 中忽略文件 在同文件夹中执行 echo 'file' >> .gitignore
+git clone 格式
+$ git clone ssh://m*****@*****myftpupload.com/~/repos/55jw.git
