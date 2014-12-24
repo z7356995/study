@@ -1,0 +1,10 @@
+select t1.module, t2.status
+	from t1
+
+	left join t2 
+
+	on t2.uid=2
+	and t1.module=t2.module
+	order by t1.id
+limit 0,7
+	;
