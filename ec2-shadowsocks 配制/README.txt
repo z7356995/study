@@ -17,3 +17,12 @@ ec2上
 这里server 抓取到的是ec2上的公有ip
 公有ip里还有很好机子. 所以不是公有ip.应改为私有ip.
 
+
+重启后不能运行
+sudo vim /etc/rc.local
+
+加上自启动代码
+/usr/local/bin/ssserver -c /etc/shadowsocks/config.json
+
+
+成功运行
