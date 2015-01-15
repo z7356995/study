@@ -1,2 +1,2 @@
-﻿https://github.com/philplckthun/setup-simple-ipsec-l2tp-vpn,
+﻿https://github.com/philplckthun/setup-simple-ipsec-l2tp-vpn
 测试可用 ubuntu 要用ipsec-l2tp 因为 pptp 可能已被gfw 干掉了
