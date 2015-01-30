@@ -1,0 +1,63 @@
+下表说明如何在 Apple 外置键盘和内建键盘上键入 PC 按键命令。
+
+PC 按键命令 Apple 外置键盘 内建 Mac 键盘/ Apple Wireless Keyboard 键盘 
+Control-Alt-Delete
+ Control-Option-向前删除键 (1)
+ Control-Option-Delete
+ 
+Alt
+ Option
+ Option
+ 
+AltGr
+ Control-Option
+ Control-Option
+ 
+Backspace
+ Delete
+ Delete
+ 
+Delete
+ 向前删除键 (1)
+ Fn-Delete
+ 
+Enter
+ Return
+ Return
+ 
+Enter 
+
+（数字小键盘）
+ Enter
+ Enter
+（仅某些内建键盘含有此键）(2)
+ 
+Insert 
+ Fn-Enter 或 Help
+ Fn-Enter
+ 
+Num lock
+ Clear
+ Fn-F6 
+（仅某些内建键盘含有此键）(2)
+ 
+Pause/Break
+ F16
+ Fn-Esc
+ 
+Print Screen 
+ F14
+ Fn-Shift-F11
+ 
+Print 活动窗口
+ Option-F14
+ Fn-Shift-Option-F11
+ 
+Scroll/Lock
+ F15
+ Fn-Shift-F12
+ 
+Windows
+ Command
+ Command
+ 
