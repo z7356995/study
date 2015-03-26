@@ -1,0 +1,3 @@
+﻿同级class中函数调用$this->
+
+取文件名 onethink_order 结果thinkphp 关联操作时 老是于mysql的order冲突.一下午浪费了.
