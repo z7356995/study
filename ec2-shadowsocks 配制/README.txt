@@ -22,7 +22,7 @@ ec2上
 sudo vim /etc/rc.local
 
 加上自启动代码
-nohu /usr/local/bin/ssserver -c /etc/shadowsocks/config.json
+nohup /usr/local/bin/ssserver -c /etc/shadowsocks/config.json
 
 
 成功运行
@@ -44,13 +44,13 @@ vi config.json
 在此文件夹下面创建config.json配置文件。
 
 {
-    "server":"104.224.157.159",
+    "server":"178.62.138.157",
     "local_port":1080,
     "port_password":
     {
-        "443":"password1",
-        "22":"password2",
-        "80":"password3"
+        "443":"ujjafus",
+        "2222":"ujjafus",
+        "8088":"ujjafus"
     },
     "timeout":600,
     "method":"aes-256-cfb"

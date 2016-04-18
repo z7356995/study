@@ -1,4 +1,4 @@
-下表说明如何在 Apple 外置键盘和内建键盘上键入 PC 按键命令。
+# 下表说明如何在 Apple 外置键盘和内建键盘上键入 PC 按键命令。
 
 PC 按键命令 Apple 外置键盘 内建 Mac 键盘/ Apple Wireless Keyboard 键盘 
 Control-Alt-Delete
